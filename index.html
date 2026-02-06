@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>R1 Esports</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+
+/* ================= GLOBAL ================= */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+background:#000;
+color:#fff;
+overflow-x:hidden;
+position:relative;
+}
+
+/* ================= CINEMATIC BACKGROUND ================= */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.92)),
+url("trophy.jpg") center/cover no-repeat;
+z-index:-3;
+}
+
+body::after{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 50% 15%,rgba(212,175,55,.35),transparent 45%);
+z-index:-2;
+}
+
+/* ================= NAVBAR ================= */
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:center;
+gap:30px;
+padding:18px;
+background:rgba(0,0,0,.65);
+backdrop-filter:blur(10px);
+z-index:999;
+}
+
+nav a{
+color:#bbb;
+text-decoration:none;
+transition:.3s;
+font-size:14px;
+}
+
+nav a:hover{color:#d4af37;}
+
+.lang-btn{
+background:#d4af37;
+color:black;
+border:none;
+padding:6px 16px;
+border-radius:20px;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* ================= SECTIONS ================= */
+section{
+padding:120px 20px;
+text-align:center;
+max-width:1200px;
+margin:auto;
+}
+
+/* ================= HERO ================= */
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+.logo{
+width:220px;
+animation:float 6s ease-in-out infinite;
+filter:drop-shadow(0 0 35px gold);
+}
+
+@keyframes float{
+50%{transform:translateY(-18px);}
+}
+
+.hero h1{
+font-size:52px;
+margin-top:25px;
+background:linear-gradient(90deg,#fff,#d4af37);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* ================= CARDS ================= */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:28px;
+margin-top:45px;
+}
+
+.card{
+background:rgba(18,18,18,.85);
+border:1px solid rgba(212,175,55,.2);
+border-radius:18px;
+padding:30px;
+transition:.4s;
+backdrop-filter:blur(10px);
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 40px rgba(212,175,55,.6);
+}
+
+.card img{
+width:110px;
+height:110px;
+border-radius:50%;
+margin-bottom:12px;
+}
+
+.card a{
+color:#d4af37;
+text-decoration:none;
+}
+
+/* ================= ACHIEVEMENTS ================= */
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin-top:50px;
+}
+
+.stat{
+background:rgba(15,15,15,.9);
+border-radius:16px;
+padding:35px 20px;
+border:1px solid rgba(212,175,55,.3);
+transition:.3s;
+}
+
+.stat:hover{
+transform:translateY(-8px);
+box-shadow:0 0 30px rgba(212,175,55,.6);
+}
+
+.stat-icon{
+font-size:32px;
+color:#d4af37;
+margin-bottom:10px;
+text-shadow:0 0 15px gold;
+}
+
+.stat h2{
+font-size:42px;
+color:#d4af37;
+}
+
+/* ================= BUTTON ================= */
+.btn{
+background:linear-gradient(45deg,#d4af37,#ffd700);
+color:black;
+padding:12px 35px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* ================= FOOTER ================= */
+footer{
+padding:70px 20px;
+border-top:1px solid rgba(212,175,55,.2);
+text-align:center;
+}
+
+/* ================= FADE ================= */
+.fade{
+opacity:0;
+transform:translateY(30px);
+transition:1s;
+}
+.show{
+opacity:1;
+transform:none;
+}
+.long-btn{
+    display:block;
+    width:100%;
+    max-width:500px;
+    margin:25px auto;
+    text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<a href="#story">About</a>
+<a href="#creators">Creators</a>
+<a href="#achievements">Achievements</a>
+<a href="#join">Join</a>
+<button class="lang-btn" onclick="toggleLang()">EN / عربي</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<img src="logo.png" class="logo">
+<h1 data-ar="فريق R1 للرياضات الإلكترونية" data-en="R1 Esports Team"></h1>
+</section>
+
+<!-- STORY -->
+<section id="story" class="fade">
+<h2 data-ar="قصتنا" data-en="Our Story"></h2>
+<p style="color:#bbb;max-width:850px;margin:auto"
+data-ar="بدأ الفريق كشغف بسيط بين الأصدقاء، واليوم أصبح مجتمعاً احترافياً ينافس على البطولات ويصنع أبطالاً في عالم الرياضات الإلكترونية."
+data-en="What started as a passion between friends has grown into a professional esports organization competing for championships and creating legends."></p>
+</section>
+
+<!-- CREATORS -->
+<section id="creators" class="fade">
+<h2 data-ar="صناع المحتوى" data-en="Content Creators"></h2>
+<div class="grid">
+
+<div class="card"><img src="https://yt3.googleusercontent.com/USdsQEauIC-kbcBRXUcmKQu_eh4WjVPbw68gKN-rKxUykshDiqDfFMw3B9y1A88J4oDw6JjM=s160-c-k-c0x00ffffff-no-rj"><h3>Phoenix</h3><a href="https://youtube.com/@IyadBaz122">@IyadBaz122</a></div>
+<div class="card"><img src="https://cdn.discordapp.com/attachments/1466084222329557139/1469010440716554356/image.png?ex=69861a15&is=6984c895&hm=a6cefbdba27712685977ef6f44be15a1c32bb5b9b700f07126be413d5b3b2b64&"><h3>BATL</h3><a href="https://youtube.com/@BATL.">@BATL.</a></div>
+<div class="card"><img src="https://yt3.googleusercontent.com/tejyDeGk7CYCLiBu5YmAYN2jWRtoCBQ5h6q_AEufEB5rD_-hUBiOs0AljgU1wdKmFVXjr0NFlx8=s160-c-k-c0x00ffffff-no-rj"><h3>Haddad</h3><a href="https://youtube.com/@HADDADZIAD62">@HADDADZIAD62</a></div>
+
+</div>
+</section>
+
+<section id="creators" class="fade">
+<h2 data-ar="قناة الفريق" data-en="Content Creators"></h2>
+<div class="grid">
+
+<div class="card"><img src="https://yt3.googleusercontent.com/q2yuwtTW_TkxIO6HVml46mk-1oBU0dBch58byiuA8vkDAKQPnyOasql7Z9mqEPraMy-81PJRmA=s160-c-k-c0x00ffffff-no-rj"><h3 data-ar="القناة الرسمية" data-en="Official Channel"></h3><a href="https://youtube.com/@rr1-11r">@rr1-11r</a></div>
+
+</div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="fade">
+<h2 data-ar="إنجازاتنا" data-en="Our Achievements"></h2>
+
+<div class="stats">
+<div class="stat"><i class="fa-solid fa-bolt stat-icon"></i><h2 data-count="174465">0</h2><p>Views</p></div>
+<div class="stat"><i class="fa-solid fa-bullseye stat-icon"></i><h2 data-count="2000">0</h2><p>Followers</p></div>
+<div class="stat"><i class="fa-solid fa-users stat-icon"></i><h2 data-count="5">0</h2><p>Creators</p></div>
+<div class="stat"><i class="fa-solid fa-trophy stat-icon"></i><h2 data-count="1">0</h2><p>Trophies</p></div>
+</div>
+</section>
+
+<!-- JOIN -->
+<section id="join" class="fade">
+<h2 data-ar="انضم لعائلة R1" data-en="Join R1 Family"></h2>
+<br>
+<a href="https://discord.gg/hj36KgZ7eW" class="btn long-btn">Discord</a>
+</section>
+
+<footer>
+<img src="logo.png" width="110">
+<p>© 2026 R1 Esports</p>
+</footer>
+
+<script>
+
+/* language */
+function toggleLang(){
+const html=document.documentElement;
+const isArabic=html.lang==="ar";
+html.lang=isArabic?"en":"ar";
+html.dir=isArabic?"ltr":"rtl";
+document.querySelectorAll("[data-ar]").forEach(el=>{
+el.innerText=isArabic?el.dataset.en:el.dataset.ar;
+});
+}
+
+/* fade */
+const faders=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+faders.forEach(el=>{
+if(el.getBoundingClientRect().top < window.innerHeight-100){
+el.classList.add('show');
+}
+});
+});
+
+/* counter animation */
+const counters=document.querySelectorAll("[data-count]");
+let started=false;
+
+window.addEventListener("scroll",()=>{
+if(started) return;
+
+const top=document.getElementById("achievements").getBoundingClientRect().top;
+
+if(top<window.innerHeight-100){
+started=true;
+
+counters.forEach(c=>{
+let target=+c.dataset.count;
+let count=0;
+let step=target/100;
+
+let interval=setInterval(()=>{
+count+=step;
+if(count>=target){
+c.innerText="+"+(target>=1000000?(target/1000000+"M"):(target>=1000?(target/1000+"K"):target));
+clearInterval(interval);
+}else{
+c.innerText="+"+Math.floor(count);
+}
+},15);
+});
+}
+});
+</script>
+
+</body>
+</html>
