@@ -361,30 +361,269 @@ transition:1s;
 opacity:1;
 transform:none;
 }
+/* ===== HERO EXTRAS ===== */
+.hero{
+position:relative;
+overflow:hidden;
+}
+
+.hero-lines{
+position:absolute;
+inset:0;
+background:
+linear-gradient(90deg,transparent 48%,rgba(212,175,55,.08) 50%,transparent 52%),
+linear-gradient(transparent 48%,rgba(212,175,55,.08) 50%,transparent 52%);
+background-size:120px 120px;
+opacity:.15;
+z-index:-1;
+}
+
+.hero-desc{
+margin-top:18px;
+color:#ccc;
+font-size:18px;
+max-width:600px;
+text-align:center;
+}
+
+.hero-actions{
+margin-top:35px;
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.hero-btn{
+padding:14px 34px;
+border-radius:35px;
+font-weight:900;
+text-decoration:none;
+transition:.3s;
+}
+
+.hero-btn.main{
+background:linear-gradient(45deg,#d4af37,#ffd700);
+color:#000;
+}
+
+.hero-btn.main:hover{
+transform:scale(1.07);
+box-shadow:0 0 25px gold;
+}
+
+.hero-btn.outline{
+border:2px solid #d4af37;
+color:#d4af37;
+}
+
+.hero-btn.outline:hover{
+background:#d4af37;
+color:#000;
+}
+
+.hero-stats{
+margin-top:45px;
+display:flex;
+gap:35px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.hero-stats div{
+text-align:center;
+}
+
+.hero-stats strong{
+font-size:28px;
+color:#d4af37;
+display:block;
+}
+
+.hero-stats span{
+font-size:13px;
+color:#aaa;
+}
+/* ===== MODERN NAVBAR ===== */
+.nav{
+position:fixed;
+top:0;
+width:100%;
+z-index:1000;
+background:rgba(0,0,0,.55);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(212,175,55,.15);
+}
+
+.nav-inner{
+max-width:1300px;
+margin:auto;
+padding:14px 30px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+/* شعار */
+.nav-logo img{
+width:42px;
+filter:drop-shadow(0 0 12px gold);
+}
+
+/* روابط */
+.nav-links{
+display:flex;
+gap:35px;
+align-items:center;
+}
+
+.nav-links a{
+position:relative;
+color:#ccc;
+text-decoration:none;
+font-weight:800;
+font-size:15px;
+transition:.3s;
+padding:6px 0;
+}
+
+/* خط ذهبي متحرك */
+.nav-links a::after{
+content:"";
+position:absolute;
+right:0;
+bottom:-6px;
+width:0;
+height:2px;
+background:linear-gradient(90deg,#d4af37,#ffd700);
+transition:.3s;
+}
+
+/* Hover */
+.nav-links a:hover{
+color:#fff;
+text-shadow:0 0 10px gold;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+width:100%;
+}
+
+/* Active */
+.nav-links a.active{
+color:#d4af37;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width:768px){
+.nav-inner{
+flex-direction:column;
+gap:12px;
+}
+.nav-links{
+gap:22px;
+}
+
 
 </style>
 </head>
 
 <body>
 
-<nav>
-<a href="#story">قصتنا</a>
-<a href="#creators">صناع المحتوى</a>
-<a href="#achievements">إنجازاتنا</a>
-<a href="#join">انضم إلينا</a>
+<nav class="nav">
+  <div class="nav-inner">
+
+    <!-- شعار صغير -->
+    <div class="nav-logo">
+      <img src="logo.png" alt="R1">
+    </div>
+
+    <!-- الروابط -->
+    <div class="nav-links">
+      <a href="#story" class="active">قصتنا</a>
+      <a href="#creators">صناع المحتوى</a>
+      <a href="#achievements">إنجازاتنا</a>
+      <a href="#join">انضم إلينا</a>
+    </div>
+
+  </div>
 </nav>
 
 <section class="hero">
-<img src="logo.png" class="logo" alt="R1 Logo">
-<h1>فريق R1 للرياضات الإلكترونية</h1>
+
+  <div class="hero-lines"></div>
+
+  <img src="https://t10.pro/animated.gif" class="logo" alt="R1 Logo">
+
+  <h1>فريق R1 للرياضات الإلكترونية</h1>
+
+  <p class="hero-desc">
+    فريق سعودي لصناعة المحتوى والرياضات الإلكترونية  
+    نسعى للاحتراف، المنافسة، وبناء مجتمع قوي
+  </p>
+
+  <div class="hero-actions">
+    <a href="#join" class="hero-btn main">انضم إلينا</a>
+    <a href="#story" class="hero-btn outline">تعرف علينا</a>
+  </div>
+
+  <div class="hero-stats">
+    <div><strong>6+</strong><span>صناع محتوى</span></div>
+    <div><strong>204K+</strong><span>مشاهدات</span></div>
+    <div><strong>2025</strong><span>منذ</span></div>
+  </div>
+
 </section>
 
 <section id="story" class="fade">
-<h2>قصتنا</h2>
-<p style="color:#bbb;max-width:850px;margin:auto">
-R1 Esports فريق سعودي لصناعة المحتوى والرياضات الإلكترونية،
-يهدف لصناعة النجوم وبناء مجتمع احترافي ينافس عالميًا.
-</p>
+<div class="partner-box">
+<span>قصتنا</span>
+<div class="partner-content">
+<img src="logo.png" alt="R1 Esports Logo">
+<div class="partner-text">
+<h3>R1 Esports</h3>
+<p style="
+    color:#ccc;
+    max-width:950px;
+    margin:0 auto;
+    font-size:18px;
+    line-height:2.1;
+  ">
+    <strong>R1 Esports</strong> هو فريق سعودي متخصص في الرياضات الإلكترونية
+    وصناعة المحتوى، انطلق من شغف حقيقي بعالم الألعاب والمنافسات،
+    وتحول مع الوقت إلى كيان احترافي يطمح لترك بصمة واضحة
+    في ساحة الـ <strong>Esports</strong> محليًا وعالميًا.
+    <br><br>
+
+    نسعى في فريق R1 إلى بناء مجتمع قوي يجمع اللاعبين وصنّاع المحتوى
+    تحت راية واحدة، حيث نؤمن بأن النجاح لا يعتمد فقط على الفوز في البطولات،
+    بل على تطوير المهارات، صناعة محتوى إبداعي، والالتزام بالاحترافية
+    في كل ما نقدمه.
+    <br><br>
+
+    نعمل بشكل مستمر على دعم المواهب الصاعدة، تمكين صناع المحتوى،
+    والمشاركة في المنافسات والبطولات، مع الحرص على تقديم صورة مشرفة
+    تعكس الهوية السعودية في عالم الألعاب والرياضات الإلكترونية.
+    <br><br>
+
+    رؤيتنا في <strong>R1 Esports</strong> هي أن نكون من الفرق الرائدة
+    في صناعة المحتوى والمنافسة الاحترافية، وأن نساهم في تطوير
+    مشهد الـ Esports وبناء جيل جديد من النجوم.
+  </p>
+
+  <div style="
+    margin-top:35px;
+    color:#d4af37;
+    font-size:18px;
+    font-weight:900;
+    letter-spacing:2px;
+  ">
+    الاحتراف • الشغف • المجتمع
+  </div>
+  </div>
+  </div>
+  </div>
 </section>
 
 <section id="creators" class="fade">
@@ -423,7 +662,11 @@ R1 Esports فريق سعودي لصناعة المحتوى والرياضات ا
 <div class="stat"><i class="fa-solid fa-trophy"></i><h2>1</h2><p>بطولة</p></div>
 </div>
 </section>
-
+<br>
+<br>
+<br>
+<br>
+<br>
 <section id="join" class="fade">
 <h2>انضم لعائلة R1</h2>
 <a href="https://discord.gg/hj36KgZ7eW" class="main-btn">الدخول إلى دسكورد</a>
@@ -445,6 +688,24 @@ R1 Esports فريق سعودي لصناعة المحتوى والرياضات ا
 <img src="logo.png" width="120" alt="R1">
 <p>© 2026 R1 Esports – جميع الحقوق محفوظة</p>
 </footer>
+<script>
+const sections=document.querySelectorAll("section");
+const navLinks=document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll",()=>{
+let current="";
+sections.forEach(sec=>{
+const secTop=sec.offsetTop-140;
+if(pageYOffset>=secTop) current=sec.getAttribute("id");
+});
+navLinks.forEach(a=>{
+a.classList.remove("active");
+if(a.getAttribute("href")==="#"+current){
+a.classList.add("active");
+}
+});
+});
+</script>
 
 <script>
 const faders=document.querySelectorAll('.fade');
