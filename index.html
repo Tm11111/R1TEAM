@@ -745,17 +745,7 @@ document.addEventListener('keydown', function(e){
   }
 });
 
-// كشف فتح DevTools (بعض المتصفحات)
-setInterval(function(){
-  const threshold = 160;
-  if (
-    window.outerWidth - window.innerWidth > threshold ||
-    window.outerHeight - window.innerHeight > threshold
-  ) {
-    document.body.innerHTML = 
-      "<h1 style='color:white;text-align:center;margin-top:20%'>🚫 الوصول مرفوض</h1>";
-  }
-}, 1000);
 </script>
 
 </html>
+
