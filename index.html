@@ -746,7 +746,68 @@ document.addEventListener('keydown', function(e){
 });
 
 </script>
+<canvas id="stars"></canvas>
+
+<script>
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+
+let w, h;
+function resize(){
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+canvas.style.position = "fixed";
+canvas.style.top = 0;
+canvas.style.left = 0;
+canvas.style.pointerEvents = "none";
+canvas.style.zIndex = 2;
+
+const stars = [];
+const STAR_COUNT = 520;
+
+for(let i=0;i<STAR_COUNT;i++){
+  stars.push({
+    x: Math.random()*w,
+    y: Math.random()*h,
+    r: Math.random()*1.5 + 0.5,
+    speed: Math.random()*0.9 + 0.3,
+    opacity: Math.random()
+  });
+}
+
+function draw(){
+  ctx.clearRect(0,0,w,h);
+  stars.forEach(s=>{
+    ctx.beginPath();
+    ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx.fillStyle = `rgba(212,175,55,${s.opacity})`;
+    ctx.fill();
+  });
+}
+
+function update(){
+  stars.forEach(s=>{
+    s.y += s.speed;
+    if(s.y > h){
+      s.y = -10;
+      s.x = Math.random()*w;
+    }
+  });
+}
+
+function animate(){
+  draw();
+  update();
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
 
 </html>
+
 
 
